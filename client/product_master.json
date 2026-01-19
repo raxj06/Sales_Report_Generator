@@ -1,0 +1,181 @@
+{
+  "products": {
+    "TINI-PACK50": {
+      "name": "JOYSPOON TINI MINI SACHET (PACK OF 50)",
+      "hsn_code": "2008",
+      "pieces_per_box": 50,
+      "box_weight_kg": 2.5,
+      "box_length_cm": 30,
+      "box_width_cm": 25,
+      "box_height_cm": 20,
+      "unit": "pcs"
+    },
+    "ELA-100": {
+      "name": "Elaichi Saunf 100GM",
+      "hsn_code": "21069030",
+      "pieces_per_box": 60,
+      "box_weight_kg": 6.5,
+      "box_length_cm": 35,
+      "box_width_cm": 28,
+      "box_height_cm": 22,
+      "unit": "pcs"
+    },
+    "PAC-AML-100": {
+      "name": "Pachak Amla 100g",
+      "hsn_code": "8119010",
+      "pieces_per_box": 60,
+      "box_weight_kg": 6.5,
+      "box_length_cm": 35,
+      "box_width_cm": 28,
+      "box_height_cm": 22,
+      "unit": "pcs"
+    },
+    "MAD-100": {
+      "name": "Madraasi Saunf 100g",
+      "hsn_code": "17019100",
+      "pieces_per_box": 60,
+      "box_weight_kg": 6.5,
+      "box_length_cm": 35,
+      "box_width_cm": 28,
+      "box_height_cm": 22,
+      "unit": "pcs"
+    },
+    "MS_125GM": {
+      "name": "JoySpoon Mango Slice Mukhwas 125gm",
+      "hsn_code": "300490",
+      "pieces_per_box": 48,
+      "box_weight_kg": 6.5,
+      "box_length_cm": 35,
+      "box_width_cm": 28,
+      "box_height_cm": 22,
+      "unit": "pcs"
+    },
+    "KAS_150GM": {
+      "name": "Kacha Aam Shots 150g",
+      "hsn_code": "2008",
+      "pieces_per_box": 48,
+      "box_weight_kg": 7.5,
+      "box_length_cm": 35,
+      "box_width_cm": 28,
+      "box_height_cm": 24,
+      "unit": "pcs"
+    },
+    "PS_150GM": {
+      "name": "JoySpoon Paan Shot Mukhwas 150g",
+      "hsn_code": "200899",
+      "pieces_per_box": 48,
+      "box_weight_kg": 7.5,
+      "box_length_cm": 35,
+      "box_width_cm": 28,
+      "box_height_cm": 24,
+      "unit": "pcs"
+    },
+    "AG_150": {
+      "name": "Anardana Goli 150gm",
+      "hsn_code": "300490",
+      "pieces_per_box": 48,
+      "box_weight_kg": 7.5,
+      "box_length_cm": 35,
+      "box_width_cm": 28,
+      "box_height_cm": 24,
+      "unit": "pcs"
+    },
+    "CAL-PAN-100": {
+      "name": "Calcutta Paan 100g",
+      "hsn_code": "2008",
+      "pieces_per_box": 60,
+      "box_weight_kg": 6.5,
+      "box_length_cm": 35,
+      "box_width_cm": 28,
+      "box_height_cm": 22,
+      "unit": "pcs"
+    },
+    "TIN-100": {
+      "name": "Joyspoon Tini Mini 100g",
+      "hsn_code": "2008",
+      "pieces_per_box": 60,
+      "box_weight_kg": 6.5,
+      "box_length_cm": 35,
+      "box_width_cm": 28,
+      "box_height_cm": 22,
+      "unit": "pcs"
+    },
+    "DHA-DAL-RAW": {
+      "name": "Dhana Dal Raw",
+      "hsn_code": "2008",
+      "pieces_per_box": 24,
+      "box_weight_kg": 12,
+      "box_length_cm": 40,
+      "box_width_cm": 30,
+      "box_height_cm": 25,
+      "unit": "pcs"
+    },
+    "ELA-RAW": {
+      "name": "Elaichi Saunf Raw",
+      "hsn_code": "21069030",
+      "pieces_per_box": 24,
+      "box_weight_kg": 10,
+      "box_length_cm": 40,
+      "box_width_cm": 30,
+      "box_height_cm": 25,
+      "unit": "pcs"
+    },
+    "JEE_500": {
+      "name": "Jeera Goli Raw",
+      "hsn_code": "2008",
+      "pieces_per_box": 24,
+      "box_weight_kg": 12.5,
+      "box_length_cm": 40,
+      "box_width_cm": 30,
+      "box_height_cm": 25,
+      "unit": "pcs"
+    },
+    "MAD-SAU-RAW": {
+      "name": "Madrasi Sauf Raw",
+      "hsn_code": "2008",
+      "pieces_per_box": 24,
+      "box_weight_kg": 6.5,
+      "box_length_cm": 40,
+      "box_width_cm": 30,
+      "box_height_cm": 25,
+      "unit": "pcs"
+    },
+    "TIN-RAW": {
+      "name": "TINI MINI RAW",
+      "hsn_code": "10082920",
+      "pieces_per_box": 24,
+      "box_weight_kg": 6.5,
+      "box_length_cm": 40,
+      "box_width_cm": 30,
+      "box_height_cm": 25,
+      "unit": "pcs"
+    },
+    "GS-RAW": {
+      "name": "Gulabi Saunf Raw",
+      "hsn_code": "2008",
+      "pieces_per_box": 24,
+      "box_weight_kg": 13,
+      "box_length_cm": 40,
+      "box_width_cm": 30,
+      "box_height_cm": 25,
+      "unit": "pcs"
+    },
+    "ANA_500": {
+      "name": "Anardana Raw",
+      "hsn_code": "2008",
+      "pieces_per_box": 24,
+      "box_weight_kg": 8,
+      "box_length_cm": 40,
+      "box_width_cm": 30,
+      "box_height_cm": 25,
+      "unit": "pcs"
+    }
+  },
+  "default_box_config": {
+    "pieces_per_box": 48,
+    "box_weight_kg": 5,
+    "box_length_cm": 30,
+    "box_width_cm": 25,
+    "box_height_cm": 20
+  }
+}

@@ -1,0 +1,35 @@
+# Environment variables - DO NOT COMMIT
+.env
+.env.local
+.env.*.local
+client/.env
+server/.env
+
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Build output
+dist/
+client/dist/
+
+# Editor directories
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Server data (local development)
+server/data/
+
+# Old files
+app.js
+styles.css
+eslint.config.js

@@ -1,0 +1,19 @@
+{
+  "name": "joyspoon-report-generator",
+  "version": "1.0.0",
+  "description": "Invoice Report Generator with React frontend and Express backend",
+  "scripts": {
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev",
+    "install:all": "cd client && npm install && cd ../server && npm install",
+    "dev": "echo Run 'npm run client' and 'npm run server' in separate terminals"
+  },
+  "keywords": [
+    "invoice",
+    "report",
+    "generator",
+    "joyspoon"
+  ],
+  "author": "",
+  "license": "ISC"
+}
