@@ -136,20 +136,33 @@ app.post('/api/webhook/proxy', async (req, res) => {
 
     try {
         // Convert base64 to buffer
-        const buffer = Buffer.from(fileBase64, 'base64');
-        console.log('File size:', buffer.length, 'bytes');
+        const fileBuffer = Buffer.from(fileBase64, 'base64');
+        console.log('File size:', fileBuffer.length, 'bytes');
 
-        // Create form-data like payload
-        const FormData = require('form-data');
-        const form = new FormData();
-        form.append('file', buffer, { filename: 'invoice.pdf', contentType: 'application/pdf' });
+        // Manually build multipart form data
+        const boundary = '----WebKitFormBoundary' + Math.random().toString(36).slice(2);
+
+        const header = Buffer.from(
+            `--${boundary}\r\n` +
+            `Content-Disposition: form-data; name="file"; filename="invoice.pdf"\r\n` +
+            `Content-Type: application/pdf\r\n\r\n`
+        );
+
+        const footer = Buffer.from(`\r\n--${boundary}--\r\n`);
+
+        // Concatenate all parts into single buffer
+        const body = Buffer.concat([header, fileBuffer, footer]);
+        console.log('Total body size:', body.length, 'bytes');
 
         // Forward request to n8n webhook
         console.log('Sending to n8n...');
         const response = await fetch(webhookUrl, {
             method: 'POST',
-            body: form,
-            headers: form.getHeaders()
+            headers: {
+                'Content-Type': `multipart/form-data; boundary=${boundary}`,
+                'Content-Length': body.length.toString()
+            },
+            body: body
         });
 
         console.log('n8n response status:', response.status);
