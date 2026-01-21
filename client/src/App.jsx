@@ -155,6 +155,35 @@ function App() {
     setIsLoading(true)
 
     try {
+      // Check if we need to use proxy (HTTPS site calling HTTP webhook)
+      const isHttpsPage = window.location.protocol === 'https:'
+      const isHttpWebhook = webhookUrl.startsWith('http://')
+
+      if (isHttpsPage && isHttpWebhook) {
+        // Use proxy - convert file to base64
+        const reader = new FileReader()
+        reader.onload = async () => {
+          const base64 = reader.result.split(',')[1]
+          const proxyUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
+          const response = await fetch(`${proxyUrl}/webhook/proxy`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ webhookUrl, file: base64 })
+          })
+          if (!response.ok) throw new Error('Upload failed')
+          const data = await response.json()
+          processData(Array.isArray(data) ? data[0] : data)
+          setIsLoading(false)
+        }
+        reader.onerror = () => {
+          showToast('Failed to read file', 'error')
+          setIsLoading(false)
+        }
+        reader.readAsDataURL(file)
+        return
+      }
+
+      // Direct call for HTTPS webhooks or local development
       const formData = new FormData()
       formData.append('file', file)
       const response = await fetch(webhookUrl, { method: 'POST', body: formData })

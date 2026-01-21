@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: report-generator-api
+    runtime: node
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: NODE_ENV
+        value: production

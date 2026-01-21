@@ -1,7 +1,7 @@
 // API service - Supabase with local storage fallback
 import { supabase, isSupabaseConnected } from './supabase'
 
-const LOCAL_API = 'http://localhost:3001/api'
+const LOCAL_API = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
 
 export const api = {
     // =====================================

@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const DATA_DIR = path.join(__dirname, 'data');
 
 // Ensure data directory exists
@@ -13,7 +13,12 @@ if (!fs.existsSync(DATA_DIR)) {
 }
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+    origin: process.env.CORS_ORIGIN || '*',  // Set CORS_ORIGIN to your Vercel URL in production
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Helper functions
@@ -108,6 +113,46 @@ app.get('/api/invoices/:id', (req, res) => {
         res.json(invoice);
     } else {
         res.status(404).json({ error: 'Invoice not found' });
+    }
+});
+
+// ============================================
+// WEBHOOK PROXY (HTTPS -> HTTP)
+// ============================================
+
+app.post('/api/webhook/proxy', async (req, res) => {
+    const webhookUrl = req.body.webhookUrl;
+    const fileBase64 = req.body.file;  // Base64 encoded file
+
+    if (!webhookUrl) {
+        return res.status(400).json({ error: 'webhookUrl is required' });
+    }
+
+    if (!fileBase64) {
+        return res.status(400).json({ error: 'file is required' });
+    }
+
+    try {
+        // Convert base64 to buffer
+        const buffer = Buffer.from(fileBase64, 'base64');
+
+        // Create form-data like payload
+        const FormData = require('form-data');
+        const form = new FormData();
+        form.append('file', buffer, { filename: 'invoice.pdf', contentType: 'application/pdf' });
+
+        // Forward request to n8n webhook
+        const response = await fetch(webhookUrl, {
+            method: 'POST',
+            body: form,
+            headers: form.getHeaders()
+        });
+
+        const data = await response.json();
+        res.json(data);
+    } catch (error) {
+        console.error('Webhook proxy error:', error);
+        res.status(500).json({ error: 'Failed to forward request to webhook: ' + error.message });
     }
 });
 
